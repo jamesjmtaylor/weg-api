@@ -1,0 +1,108 @@
+2018-01-23 05:08:23.490 PST [12560] LOG:  could not bind IPv6 address "::1": Address already in use
+2018-01-23 05:08:23.490 PST [12560] HINT:  Is another postmaster already running on port 5432? If not, wait a few seconds and retry.
+2018-01-23 05:08:23.490 PST [12560] LOG:  could not bind IPv4 address "127.0.0.1": Address already in use
+2018-01-23 05:08:23.490 PST [12560] HINT:  Is another postmaster already running on port 5432? If not, wait a few seconds and retry.
+2018-01-23 05:08:23.490 PST [12560] WARNING:  could not create listen socket for "localhost"
+2018-01-23 05:08:23.490 PST [12560] FATAL:  could not create any TCP/IP sockets
+2018-01-23 05:08:23.490 PST [12560] LOG:  database system is shut down
+2018-01-23 05:08:36.488 PST [12615] LOG:  could not bind IPv6 address "::1": Address already in use
+2018-01-23 05:08:36.488 PST [12615] HINT:  Is another postmaster already running on port 5432? If not, wait a few seconds and retry.
+2018-01-23 05:08:36.488 PST [12615] LOG:  could not bind IPv4 address "127.0.0.1": Address already in use
+2018-01-23 05:08:36.488 PST [12615] HINT:  Is another postmaster already running on port 5432? If not, wait a few seconds and retry.
+2018-01-23 05:08:36.488 PST [12615] WARNING:  could not create listen socket for "localhost"
+2018-01-23 05:08:36.488 PST [12615] FATAL:  could not create any TCP/IP sockets
+2018-01-23 05:08:36.488 PST [12615] LOG:  database system is shut down
+2018-01-23 05:09:34.168 PST [12885] LOG:  listening on IPv6 address "::1", port 5432
+2018-01-23 05:09:34.168 PST [12885] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2018-01-23 05:09:34.169 PST [12885] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2018-01-23 05:09:34.178 PST [12886] LOG:  database system was shut down at 2018-01-23 05:07:47 PST
+2018-01-23 05:09:34.181 PST [12885] LOG:  database system is ready to accept connections
+2018-01-23 05:27:26.212 PST [17809] FATAL:  role "SELECT" does not exist
+2018-01-23 05:27:37.800 PST [17854] FATAL:  role "SELECT" does not exist
+2018-01-23 05:28:10.438 PST [18023] FATAL:  role "x" does not exist
+2018-01-23 05:28:43.644 PST [18188] FATAL:  database "weg" does not exist
+2018-01-23 05:29:21.048 PST [18344] FATAL:  role "weg" does not exist
+2018-01-23 05:47:00.306 PST [18420] ERROR:  syntax error at or near "/" at character 19
+2018-01-23 05:47:00.306 PST [18420] STATEMENT:  CREATE TABLE guns
+	/dt
+	/t
+	ADD COLUMN id
+	ADD COLUMN Description
+	ADD COLUMN groupIconUrl
+	ADD COLUMN individualIconUrl
+	ADD COLUMN name
+	ADD COLUMN penetration
+	ADD COLUMN photoUrl
+	ADD COLUMN range
+	SELECT * FROM guns
+	SELECT *
+	FROM guns
+	CREATE TABLE guns
+	CREATE TABLE films (
+	    code        char(5) CONSTRAINT firstkey PRIMARY KEY,
+	    title       varchar(40) NOT NULL,
+	    did         integer NOT NULL,
+	    date_prod   date,
+	    kind        varchar(10),
+	    len         interval hour to minute
+	);
+2018-01-23 05:50:13.170 PST [18420] ERROR:  syntax error at or near "/" at character 1
+2018-01-23 05:50:13.170 PST [18420] STATEMENT:  /dt
+	/dt films
+	/d+ films
+	COPY guns FROM 'db/guns.csv' CSV HEADER;
+2018-01-23 05:50:20.735 PST [18420] ERROR:  relation "guns" does not exist
+2018-01-23 05:50:20.735 PST [18420] STATEMENT:  COPY guns FROM 'db/guns.csv' CSV HEADER;
+2018-01-23 05:50:24.936 PST [18420] ERROR:  relation "guns" does not exist
+2018-01-23 05:50:24.936 PST [18420] STATEMENT:  COPY guns FROM 'db/guns.csv' CSV HEADER;
+2018-01-23 05:50:38.001 PST [18420] ERROR:  relation "forecasts" does not exist
+2018-01-23 05:50:38.001 PST [18420] STATEMENT:  COPY forecasts
+	FROM 'tmp/forecast.csv'
+	CSV HEADER;
+2018-01-23 05:50:39.978 PST [18420] ERROR:  relation "forecasts" does not exist
+2018-01-23 05:50:39.978 PST [18420] STATEMENT:  COPY forecasts
+	FROM 'tmp/forecast.csv'
+	CSV HEADER;
+2018-01-23 05:50:40.537 PST [18420] ERROR:  relation "forecasts" does not exist
+2018-01-23 05:50:40.537 PST [18420] STATEMENT:  COPY forecasts
+	FROM 'tmp/forecast.csv'
+	CSV HEADER;
+2018-01-23 05:50:54.743 PST [18420] ERROR:  relation "forecasts" does not exist
+2018-01-23 05:50:54.743 PST [18420] STATEMENT:  COPY forecasts
+	FROM 'tmp/forecast.csv'
+	CSV HEADER;
+2018-01-23 05:57:52.086 PST [18420] ERROR:  syntax error at or near "COPY" at character 44
+2018-01-23 05:57:52.086 PST [18420] STATEMENT:  COPY guns 
+	FROM 'db/guns.csv' 
+	CSV HEADER
+	
+	COPY guns
+	FROM 'db/guns.csv'
+	CSV HEADER
+	;
+2018-01-23 05:58:21.861 PST [18420] ERROR:  syntax error at or near ";" at character 18
+2018-01-23 05:58:21.861 PST [18420] STATEMENT:  CREATE TABLE guns;
+2018-01-23 05:58:38.539 PST [18420] ERROR:  could not open file "db/guns.csv" for reading: No such file or directory
+2018-01-23 05:58:38.539 PST [18420] HINT:  COPY FROM instructs the PostgreSQL server process to read a file. You may want a client-side facility such as psql's \copy.
+2018-01-23 05:58:38.539 PST [18420] STATEMENT:  COPY guns
+	FROM 'db/guns.csv'
+	CSV HEADER;
+2018-01-23 05:58:57.572 PST [18420] ERROR:  could not open file "./db/guns.csv" for reading: No such file or directory
+2018-01-23 05:58:57.572 PST [18420] HINT:  COPY FROM instructs the PostgreSQL server process to read a file. You may want a client-side facility such as psql's \copy.
+2018-01-23 05:58:57.572 PST [18420] STATEMENT:  COPY guns
+	FROM './db/guns.csv'
+	CSV HEADER;
+2018-01-23 05:59:19.866 PST [18420] ERROR:  syntax error at or near "ls" at character 1
+2018-01-23 05:59:19.866 PST [18420] STATEMENT:  ls
+	pwd
+	COPY guns
+	FROM './guns.csv'
+	CSV HEADER;
+2018-01-23 05:59:46.033 PST [18420] ERROR:  extra data after last expected column
+2018-01-23 05:59:46.033 PST [18420] CONTEXT:  COPY guns, line 2: "12,"The 2B14 Podnos is a Soviet 82mm mortar. The 2B14 was designed in early 1980s as a light indirec..."
+2018-01-23 05:59:46.033 PST [18420] STATEMENT:  COPY guns
+	FROM './guns.csv'
+	CSV HEADER;
+2018-01-23 06:06:39.998 PST [18420] ERROR:  extra data after last expected column
+2018-01-23 06:06:39.998 PST [18420] CONTEXT:  COPY guns, line 2: "12,"The 2B14 Podnos is a Soviet 82mm mortar. The 2B14 was designed in early 1980s as a light indirec..."
+2018-01-23 06:06:39.998 PST [18420] STATEMENT:  COPY guns FROM './guns.csv' CSV HEADER;
