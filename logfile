@@ -106,3 +106,24 @@
 2018-01-23 06:06:39.998 PST [18420] ERROR:  extra data after last expected column
 2018-01-23 06:06:39.998 PST [18420] CONTEXT:  COPY guns, line 2: "12,"The 2B14 Podnos is a Soviet 82mm mortar. The 2B14 was designed in early 1980s as a light indirec..."
 2018-01-23 06:06:39.998 PST [18420] STATEMENT:  COPY guns FROM './guns.csv' CSV HEADER;
+2018-01-24 04:43:57.344 PST [31684] FATAL:  lock file "postmaster.pid" already exists
+2018-01-24 04:43:57.344 PST [31684] HINT:  Is another postmaster (PID 12885) running in data directory "/Users/jtaylor/Desktop/GitHub/weg-api/./db"?
+2018-01-24 04:44:59.753 PST [31744] ERROR:  relation "guns" does not exist
+2018-01-24 04:44:59.753 PST [31744] STATEMENT:  COPY guns FROM './guns.csv' CSV HEADER;
+2018-01-24 04:45:10.297 PST [31744] ERROR:  syntax error at or near ";" at character 18
+2018-01-24 04:45:10.297 PST [31744] STATEMENT:  CREATE TABLE guns;
+2018-01-24 04:45:24.078 PST [31744] ERROR:  syntax error at or near ";" at character 19
+2018-01-24 04:45:24.078 PST [31744] STATEMENT:  CREATE TABLE guns ;
+2018-01-24 04:45:29.053 PST [31744] ERROR:  syntax error at or near ";" at character 19
+2018-01-24 04:45:29.053 PST [31744] STATEMENT:  CREATE TABLE guns
+	;
+2018-01-24 04:46:07.263 PST [31744] ERROR:  syntax error at or near ";" at character 18
+2018-01-24 04:46:07.263 PST [31744] STATEMENT:  CREATE TABLE guns;
+2018-01-24 05:02:39.940 PST [31744] ERROR:  syntax error at or near "SELECT" at character 33
+2018-01-24 05:02:39.940 PST [31744] STATEMENT:  SELECT * FROM guns WHERE id = 1
+	SELECT * FROM guns WHERE id == 1
+	COPY guns FROM './guns.csv' CSV HEADER;
+2018-01-24 05:02:49.527 PST [31744] ERROR:  duplicate key value violates unique constraint "guns_pkey"
+2018-01-24 05:02:49.527 PST [31744] DETAIL:  Key (id)=(12) already exists.
+2018-01-24 05:02:49.527 PST [31744] CONTEXT:  COPY guns, line 2
+2018-01-24 05:02:49.527 PST [31744] STATEMENT:  COPY guns FROM './guns.csv' CSV HEADER;

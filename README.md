@@ -13,8 +13,13 @@ for the time being, will eventually need to be placed on it's own persistent doc
 2. `createdb weg` **Creates the database**
 3. `psql weg` **opens the database in the termainal**
 4. `\password` **Allows you to set the password (type it in twice)**
-5. `CREATE TABLE guns;` **Creates the table guns**
-6. `COPY guns FROM './guns.csv' CSV HEADER;` **copies the values in the _guns.csv_ into the psql _guns_ table**
+5. `CREATE TABLE gun(ID INT PRIMARY KEY NOT NULL, DESCRIPTION TEXT, GROUP_ICON_URL CHAR(255), 
+   INDIVIDUAL_ICON_URL CHAR(255), NAME CHAR(255), PENETRATION INT, PHOTO_URL CHAR(255), RANGE INT);` **Creates the table guns**
+6. `COPY gun FROM './guns.csv' CSV HEADER;` **copies the values in the _guns.csv_ into the psql _guns_ table**
+7. `\dt` **Shows all the tables in the database**
+8. `\d gun` **Shows all the columns for the guns table**
+9. `SELECT name FROM guns` **Shows all the names of the rows you just inserted**
+
 
 NOTE: When you're operating in the psql command prompt, in order to 
 execute multi-line queries, i.e. 
@@ -25,7 +30,7 @@ You can press enter after each line (or not).  The only thing that psql really c
 with a semicolon (`;`) character, i.e. `SELECT * FROM guns WHERE id = 5;`
  
 ## Spike Findings
-The final stack was decided upon after experimentation with Ktor and Spark.  Ktor was decided against because of the
+The final stack was decided upon after experimentation with Ktor, Spark, and SpringBoot.  Ktor was decided against because of the
 immaturity of the stack and lack of documentation.  Spark was decided against primarily for the sake of expediency
 (Spark did everything SpringBoot is capable of, but required more code overall).
 

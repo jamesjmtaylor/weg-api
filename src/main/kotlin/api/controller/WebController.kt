@@ -1,28 +1,29 @@
 package api.controller
 
+import api.model.Gun
 import org.springframework.web.bind.annotation.RestController
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.PathVariable
 
-import api.repo.CustomerRepository
-import api.model.Customer
+import api.repo.GunRepository
 import org.springframework.beans.factory.annotation.Autowired
 
 @RestController
 class WebController {
 
 	@Autowired
-	lateinit var repository: CustomerRepository
+	lateinit var repository: GunRepository
 
 	@RequestMapping("/save")
 	fun save(): String {
-		repository.save(Customer("Jack", "Smith"))
-		repository.save(Customer("Adam", "Johnson"))
-		repository.save(Customer("Kim", "Smith"))
-		repository.save(Customer("David", "Williams"))
-		repository.save(Customer("Peter", "Davis"))
-
-		return "Done"
+//		repository.save(Gun("Jack", "Smith"))
+//		repository.save(Gun("Adam", "Johnson"))
+//		repository.save(Gun("Kim", "Smith"))
+//		repository.save(Gun("David", "Williams"))
+//		repository.save(Gun("Peter", "Davis"))
+//
+		repository.save(Gun("","","","test",0,"",0))
+		return "Stub!"
 	}
 
 	@RequestMapping("/findall")
@@ -33,7 +34,7 @@ class WebController {
 			= repository.findOne(id)
 
 	@RequestMapping("findbylastname/{lastName}")
-	fun findByLastName(@PathVariable lastName: String)
-			= repository.findByLastName(lastName)
+	fun findByName(@PathVariable name: String)
+			= repository.findByName(name)
 	
 }
