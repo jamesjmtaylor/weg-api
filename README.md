@@ -2,9 +2,15 @@
 
 This is the API for the native worldwide equipment guide mobile applications.
 It's written in Kotlin, accesses a Postgresql database with JPA, serializes it into JSON with jackson, and serves it 
-on port 8080 with Tomcat.
+on port 8080 with Tomcat.  
 
-## Terminal setup
+## Running the application
+
+Follow the steps below in the 'Future Docker Setup' section to initialize the postgres. After that you can clone the project
+and, assuming you're using the IntelliJ IDEA, go to the menu bar and select **Run** > **Run...** The api will be available
+at **http://localhost:8080/**
+
+## Future Docker setup
 
 These steps are enumerated to facilitate dockerization.  The postgresql db, though encapsulated in the github project 
 for the time being, will eventually need to be placed on it's own persistent docker container.
