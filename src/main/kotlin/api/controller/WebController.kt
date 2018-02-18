@@ -17,10 +17,6 @@ import org.springframework.util.StreamUtils
 import java.io.IOException
 import javax.servlet.http.HttpServletResponse
 
-
-
-
-
 @RestController
 class WebController {
 
@@ -29,16 +25,18 @@ class WebController {
 
 	@RequestMapping("/save")
 	fun save(): String {
-		repository.save(Gun("","","","test",0,"",0))
+		repository.save(Gun("test","","","",0,0,""))
 		return "Stub!"
 	}
     //TODO: Find out why 'name' has a really long space between the last character and the closing quote.
 	@RequestMapping("/findall")
 	fun findAll() = repository.findAll()
-    //TODO: Implement id fetch
+    @RequestMapping("/getall")
+    fun getAll() = repository.getAll()
 	@RequestMapping("/findbyid/{id}")
-	fun findById(@PathVariable id: Long)
-			= repository.findById(id)
+	fun findById(@PathVariable id: Long) = repository.findById(id)
+    @RequestMapping("/findnamebyid/{id}")
+    fun findNameByid(@PathVariable id: Long) = repository.findNameById(id)
 
     @RequestMapping(value = "/photo/{id}", method = arrayOf(RequestMethod.GET), produces = arrayOf(MediaType.IMAGE_JPEG_VALUE))
     @Throws(IOException::class)
@@ -51,7 +49,6 @@ class WebController {
                 .contentType(MediaType.IMAGE_JPEG)
                 .body(bytes)
     }
-
     @RequestMapping(value = "/group/{id}", method = arrayOf(RequestMethod.GET), produces = arrayOf(MediaType.IMAGE_PNG_VALUE))
     @Throws(IOException::class)
     fun getGroup(@PathVariable id: String): ResponseEntity<ByteArray> {

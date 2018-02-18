@@ -143,3 +143,5 @@
 2018-02-11 17:48:20.804 PST [85989] LOG:  invalid record length at 0/17789E8: wanted 24, got 0
 2018-02-11 17:48:20.804 PST [85989] LOG:  redo done at 0/17789B0
 2018-02-11 17:48:20.813 PST [85988] LOG:  database system is ready to accept connections
+2018-02-18 06:37:00.002 PST [54187] FATAL:  lock file "postmaster.pid" already exists
+2018-02-18 06:37:00.002 PST [54187] HINT:  Is another postmaster (PID 85988) running in data directory "/Users/jtaylor/Desktop/GitHub/weg-api/./db"?
