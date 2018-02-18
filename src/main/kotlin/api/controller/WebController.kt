@@ -42,8 +42,31 @@ class WebController {
 
     @RequestMapping(value = "/photo/{id}", method = arrayOf(RequestMethod.GET), produces = arrayOf(MediaType.IMAGE_JPEG_VALUE))
     @Throws(IOException::class)
-    fun getImage(@PathVariable id: String): ResponseEntity<ByteArray> {
+    fun getPhoto(@PathVariable id: String): ResponseEntity<ByteArray> {
         val imgFile = ClassPathResource("images/photo/" + id + ".jpg")
+        val bytes = StreamUtils.copyToByteArray(imgFile.inputStream)
+
+        return ResponseEntity
+                .ok()
+                .contentType(MediaType.IMAGE_JPEG)
+                .body(bytes)
+    }
+
+    @RequestMapping(value = "/group/{id}", method = arrayOf(RequestMethod.GET), produces = arrayOf(MediaType.IMAGE_PNG_VALUE))
+    @Throws(IOException::class)
+    fun getGroup(@PathVariable id: String): ResponseEntity<ByteArray> {
+        val imgFile = ClassPathResource("images/group/" + id + ".png")
+        val bytes = StreamUtils.copyToByteArray(imgFile.inputStream)
+
+        return ResponseEntity
+                .ok()
+                .contentType(MediaType.IMAGE_JPEG)
+                .body(bytes)
+    }
+    @RequestMapping(value = "/individual/{id}", method = arrayOf(RequestMethod.GET), produces = arrayOf(MediaType.IMAGE_PNG_VALUE))
+    @Throws(IOException::class)
+    fun getIndividual(@PathVariable id: String): ResponseEntity<ByteArray> {
+        val imgFile = ClassPathResource("images/individual/" + id + ".png")
         val bytes = StreamUtils.copyToByteArray(imgFile.inputStream)
 
         return ResponseEntity
