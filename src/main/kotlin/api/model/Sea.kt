@@ -6,7 +6,7 @@ import javax.persistence.*
 @Entity
 class Sea(
         val name: String,
-        val individualIcon: String,
+        val individualIconUrl: String,
         val photoUrl: String,
         val gun: String,
         val sam: String,

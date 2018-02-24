@@ -7,7 +7,7 @@ import javax.persistence.*
 class Air(
         val name: String,
         val groupIconUrl: String,
-        val individualIcon: String,
+        val individualIconUrl: String,
         val photoUrl: String,
         val gun: String,
         val agm: String,

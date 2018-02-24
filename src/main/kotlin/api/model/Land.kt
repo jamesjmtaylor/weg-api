@@ -7,7 +7,7 @@ import javax.persistence.*
 class Land(
         val name: String,
         val groupIconUrl: String,
-        val individualIcon: String,
+        val individualIconUrl: String,
         val photoUrl: String,
         val primaryWeapon: String,
         val secondaryWeapon: String,

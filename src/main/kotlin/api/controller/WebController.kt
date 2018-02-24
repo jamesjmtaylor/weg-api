@@ -1,11 +1,14 @@
 package api.controller
 
 import api.model.Gun
+import api.repo.AirRepository
 import org.springframework.web.bind.annotation.RestController
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.PathVariable
 
 import api.repo.GunRepository
+import api.repo.LandRepository
+import api.repo.SeaRepository
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.RequestMethod
@@ -23,21 +26,33 @@ class WebController {
 	@Autowired
 	lateinit var repository: GunRepository
 
+    @Autowired
+    lateinit var landRepo: LandRepository
+    @Autowired
+    lateinit var seaRepo: SeaRepository
+    @Autowired
+    lateinit var airRepo: AirRepository
+
 	@RequestMapping("/save")
 	fun save(): String {
 //		repository.save(Gun("test","","","",0,0,""))
 		return "Stub!"
 	}
-    //TODO: Find out why 'name' has a really long space between the last character and the closing quote.
+
+    //MARK: - JSON fetching endpoints
 	@RequestMapping("/findall")
 	fun findAll() = repository.findAll()
-    @RequestMapping("/getall")
-    fun getAll() = repository.getAll()
+    @RequestMapping("/getAllGuns")
+    fun getAllGuns() = repository.getAll()
+    @RequestMapping("/getAllSea")
+    fun getAllSea() = seaRepo.getAll()
+
 	@RequestMapping("/findbyid/{id}")
 	fun findById(@PathVariable id: Long) = repository.findById(id)
     @RequestMapping("/findnamebyid/{id}")
     fun findNameByid(@PathVariable id: Long) = repository.findNameById(id)
 
+    //MARK: - Image fetching endpoints
     @RequestMapping(value = "/photo/{id}", method = arrayOf(RequestMethod.GET), produces = arrayOf(MediaType.IMAGE_JPEG_VALUE))
     @Throws(IOException::class)
     fun getPhoto(@PathVariable id: String): ResponseEntity<ByteArray> {

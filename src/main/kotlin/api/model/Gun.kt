@@ -7,7 +7,7 @@ import javax.persistence.*
 class Gun(
         val name: String,
 		val groupIconUrl: String,
-		val individualIcon: String,
+		val individualIconUrl: String,
         val photoUrl: String,
         val range: Int,
         val penetration: Int,
