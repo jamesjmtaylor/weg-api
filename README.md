@@ -19,12 +19,24 @@ for the time being, will eventually need to be placed on it's own persistent doc
 2. `createdb weg` **Creates the database**
 3. `psql weg` **opens the database in the termainal**
 4. `\password` **Allows you to set the password (type it in twice)**
-5. `CREATE TABLE gun(ID INT PRIMARY KEY NOT NULL, DESCRIPTION TEXT, GROUP_ICON_URL CHAR(255), 
-   INDIVIDUAL_ICON_URL CHAR(255), NAME CHAR(255), PENETRATION INT, PHOTO_URL CHAR(255), RANGE INT);` **Creates the table guns**
+5. `CREATE TABLE ground(ID INT PRIMARY KEY NOT NULL, NAME CHAR(255), DESCRIPTION TEXT, GROUP_ICON_URL CHAR(255), INDIVIDUAL_ICON_URL CHAR(255),  
+           PHOTO_URL CHAR(255), RANGE INT, PENETRATION INT, ALTITUDE INT);` **Creates the table `gun`**
 6. `COPY gun FROM './guns.csv' CSV HEADER;` **copies the values in the _guns.csv_ into the psql _guns_ table**
 7. `\dt` **Shows all the tables in the database**
 8. `\d gun` **Shows all the columns for the guns table**
-9. `SELECT name FROM guns` **Shows all the names of the rows you just inserted**
+9. `SELECT name FROM gun` **Shows all the names of the rows you just inserted**
+10. `CREATE TABLE land(ID INT PRIMARY KEY NOT NULL, NAME CHAR(255), DESCRIPTION TEXT, GROUP_ICON_URL CHAR(255), INDIVIDUAL_ICON_URL CHAR(255),  
+       PHOTO_URL CHAR(255), PRIMARY_WEAPON CHAR(255), SECONDARY_WEAPON CHAR(255), ATGM CHAR(255), 
+       ARMOR INT, SPEED INT, AUTO INT, WEIGHT INT);` **Creates the table `land`**
+11. `COPY land FROM './land.csv' CSV HEADER;` **copies the values in the _land.csv_ into the psql _land_ table**
+12. `CREATE TABLE air(ID INT PRIMARY KEY NOT NULL, NAME CHAR(255), DESCRIPTION TEXT, GROUP_ICON_URL CHAR(255), INDIVIDUAL_ICON_URL CHAR(255),  
+       PHOTO_URL CHAR(255), GUN CHAR(255), AGM CHAR(255), AAM CHAR(255), ASM CHAR(255),
+       SPEED INT, AUTO INT, CEILING INT, WEIGHT INT);` **Creates the table `air`**
+13. `COPY air FROM './air.csv' CSV HEADER;` **copies the values in the _air.csv_ into the psql _air_ table**
+14. `CREATE TABLE sea(ID INT PRIMARY KEY NOT NULL, NAME CHAR(255), DESCRIPTION TEXT, INDIVIDUAL_ICON_URL CHAR(255),  
+       PHOTO_URL CHAR(255), GUN CHAR(255), SAM CHAR(255), ASM CHAR(255), TORPEDO CHAR(255), TRANSPORTS CHAR(255), QTY INT,
+       DIVE INT, SPEED INT, AUTO INT, TONNAGE INT);` **Creates the table `sea`**
+15. `COPY sea FROM './sea.csv' CSV HEADER;` **copies the values in the _sea.csv_ into the psql _sea_ table**
 
 
 NOTE: When you're operating in the psql command prompt, in order to 

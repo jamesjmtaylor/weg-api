@@ -25,7 +25,7 @@ class WebController {
 
 	@RequestMapping("/save")
 	fun save(): String {
-		repository.save(Gun("test","","","",0,0,""))
+//		repository.save(Gun("test","","","",0,0,""))
 		return "Stub!"
 	}
     //TODO: Find out why 'name' has a really long space between the last character and the closing quote.
