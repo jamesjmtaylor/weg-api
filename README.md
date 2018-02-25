@@ -6,7 +6,7 @@ on port 8080 with Tomcat.
 
 ## Running the application
 
-Follow the steps below in the 'Future Docker Setup' section to initialize the postgres. After that you can clone the project
+Follow the steps below in the 'Future Docker Setup' section to initialize the postgres db. After that you can clone the project
 and, assuming you're using the IntelliJ IDEA, go to the menu bar and select **Run** > **Run...** The api will be available
 at **http://localhost:8080/**
 
@@ -19,7 +19,7 @@ for the time being, will eventually need to be placed on it's own persistent doc
 2. `createdb weg` **Creates the database**
 3. `psql weg` **opens the database in the termainal**
 4. `\password` **Allows you to set the password (type it in twice)**
-5. `CREATE TABLE ground(ID INT PRIMARY KEY NOT NULL, NAME CHAR(255), DESCRIPTION TEXT, GROUP_ICON_URL CHAR(255), INDIVIDUAL_ICON_URL CHAR(255),  
+5. `CREATE TABLE gun(ID INT PRIMARY KEY NOT NULL, NAME CHAR(255), DESCRIPTION TEXT, GROUP_ICON_URL CHAR(255), INDIVIDUAL_ICON_URL CHAR(255),  
            PHOTO_URL CHAR(255), RANGE INT, PENETRATION INT, ALTITUDE INT);` **Creates the table `gun`**
 6. `COPY gun FROM './guns.csv' CSV HEADER;` **copies the values in the _guns.csv_ into the psql _guns_ table.
 NOTE that it must be an absolute path to the CSV.**
@@ -57,13 +57,14 @@ immaturity of the stack and lack of documentation.  Spark was decided against pr
 (Spark did everything SpringBoot is capable of, but required more code overall).
 
 Ultimately Spark appears to be the ideal choice for longterm development because less functionality is 'automagically'
-generated.  One such example is JSON serlialization.  In SpringBoot classes with the `@Repository` annotation are
-automatically converted to tables if they don't exist already in the database.  Similiarly rows are represented by
-classes with the `@Entity` annotation, with each class attribute forming a column in the table that contains it.  
+generated and it's more lightweight overall. SpringBoot relies pretty heavily on annotations.  Classes with 
+the `@Repository` annotation are automatically converted to tables if they don't exist already in the database.  
+Similiarly rows are represented by classes with the `@Entity` annotation, with each class attribute forming a column in 
+the table that contains it.  
   
 Spark on the other hand uses Data Access Objects with SQL queries (i.e. "SELECT * FROM table) thinly wrapped with 
-Kotlin methods.  This forces the developer to do a lot of hand-crafting of SQL statements upfront, but ultimately 
-provides more flexibility in the long run.
+Kotlin methods.  This forces the developer to do a lot of hand-crafting of SQL statements upfront, but means that you can
+minimize the size of your external libraries overall.
   
 ## POSTGRESQL Lessons Learned
 
