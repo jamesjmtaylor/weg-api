@@ -38,7 +38,7 @@ class LandCombined(
         @Lob @Type(type = "org.hibernate.type.TextType")
         val description: String,
         @Id @GeneratedValue(strategy = GenerationType.AUTO)
-        val id: Long = -1) {
+        var id: Long = -1) {
 
     private constructor() : this("", "","","",null, null, null,0,0, 0, 0, "")
 }

@@ -58,6 +58,7 @@ class WebController {
                     gunMap.get(l.secondaryWeapon?.trim()?.toLowerCase()),
                     gunMap.get(l.atgm?.trim()?.toLowerCase()),
                     l.armor,l.speed,l.auto,l.weight,l.description)
+            lc.id = l.id
             landCombinedList.add(lc)
         }
         return landCombinedList
@@ -78,6 +79,7 @@ class WebController {
                     gunMap.get(s.asm?.trim()?.toLowerCase()),
                     gunMap.get(s.torpedo?.trim()?.toLowerCase()),
                     s.transports,s.qty,s.dive,s.speed,s.auto,s.tonnage,s.description)
+            sc.id = s.id
             seaCombinedList.add(sc)
         }
         return seaCombinedList
@@ -98,6 +100,7 @@ class WebController {
                     gunMap.get(a.aam?.trim()?.toLowerCase()),
                     gunMap.get(a.asm?.trim()?.toLowerCase()),
                     a.speed,a.auto,a.ceiling,a.weight,a.description)
+            ac.id = a.id
             airCombinedList.add(ac)
         }
         return airCombinedList
