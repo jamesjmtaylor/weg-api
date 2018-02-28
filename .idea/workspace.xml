@@ -2,16 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c608dfd9-dabb-4c28-beee-69618577a970" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/api/controller/WebController.kt" afterPath="$PROJECT_DIR$/src/main/kotlin/api/controller/WebController.kt" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/api/model/Air.kt" afterPath="$PROJECT_DIR$/src/main/kotlin/api/model/Air.kt" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/api/model/Land.kt" afterPath="$PROJECT_DIR$/src/main/kotlin/api/model/Land.kt" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/api/model/Sea.kt" afterPath="$PROJECT_DIR$/src/main/kotlin/api/model/Sea.kt" />
-      <change beforePath="$PROJECT_DIR$/target/classes/api/controller/WebController.class" afterPath="$PROJECT_DIR$/target/classes/api/controller/WebController.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/api/model/AirCombined.class" afterPath="$PROJECT_DIR$/target/classes/api/model/AirCombined.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/api/model/LandCombined.class" afterPath="$PROJECT_DIR$/target/classes/api/model/LandCombined.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/api/model/SeaCombined.class" afterPath="$PROJECT_DIR$/target/classes/api/model/SeaCombined.class" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -23,11 +14,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Land.kt" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Land.kt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/kotlin/api/model/Land.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="585">
-              <caret line="40" column="11" lean-forward="false" selection-start-line="40" selection-start-column="11" selection-end-line="40" selection-end-column="11" />
+            <state relative-caret-position="195">
+              <caret line="14" column="23" lean-forward="true" selection-start-line="14" selection-start-column="23" selection-end-line="14" selection-end-column="23" />
               <folding />
             </state>
           </provider>
@@ -56,11 +47,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="WebController.kt" pinned="false" current-in-tab="false">
+      <file leaf-file-name="WebController.kt" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/kotlin/api/controller/WebController.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="615">
-              <caret line="60" column="24" lean-forward="false" selection-start-line="60" selection-start-column="24" selection-end-line="60" selection-end-column="24" />
+            <state relative-caret-position="74">
+              <caret line="80" column="72" lean-forward="true" selection-start-line="80" selection-start-column="72" selection-end-line="80" selection-end-column="72" />
               <folding>
                 <element signature="n#!!block;n#save#0;n#!!block;n#WebController#0" expanded="false" />
                 <element signature="n#!!block;n#getPhoto#0;n#!!block;n#WebController#0" expanded="false" />
@@ -107,6 +98,8 @@
       <find>l</find>
       <find>s</find>
       <find>individual_icon</find>
+      <find>trim()?.</find>
+      <find>.trim()</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -137,8 +130,8 @@
         <option value="$PROJECT_DIR$/src/main/kotlin/api/model/Air.kt" />
         <option value="$PROJECT_DIR$/src/main/kotlin/api/model/Land.kt" />
         <option value="$PROJECT_DIR$/src/main/kotlin/api/model/Sea.kt" />
-        <option value="$PROJECT_DIR$/src/main/kotlin/api/controller/WebController.kt" />
         <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/src/main/kotlin/api/controller/WebController.kt" />
       </list>
     </option>
   </component>
@@ -149,7 +142,7 @@
       </MavenImportingSettings>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="1">
     <option name="x" value="1920" />
     <option name="width" value="1920" />
     <option name="height" value="1079" />
@@ -398,7 +391,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1920" y="0" width="1920" height="1079" extended-state="6" />
+    <frame x="1920" y="0" width="1920" height="1079" extended-state="1" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -801,19 +794,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/kotlin/api/controller/WebController.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="615">
-          <caret line="60" column="24" lean-forward="false" selection-start-line="60" selection-start-column="24" selection-end-line="60" selection-end-column="24" />
-          <folding>
-            <element signature="n#!!block;n#save#0;n#!!block;n#WebController#0" expanded="false" />
-            <element signature="n#!!block;n#getPhoto#0;n#!!block;n#WebController#0" expanded="false" />
-            <element signature="n#!!block;n#getGroup#0;n#!!block;n#WebController#0" expanded="false" />
-            <element signature="n#!!block;n#getIndividual#0;n#!!block;n#WebController#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/kotlin/api/model/Gun.kt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
@@ -848,9 +828,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/kotlin/api/model/Land.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="585">
-          <caret line="40" column="11" lean-forward="false" selection-start-line="40" selection-start-column="11" selection-end-line="40" selection-end-column="11" />
+        <state relative-caret-position="195">
+          <caret line="14" column="23" lean-forward="true" selection-start-line="14" selection-start-column="23" selection-end-line="14" selection-end-column="23" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/api/controller/WebController.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="74">
+          <caret line="80" column="72" lean-forward="true" selection-start-line="80" selection-start-column="72" selection-end-line="80" selection-end-column="72" />
+          <folding>
+            <element signature="n#!!block;n#save#0;n#!!block;n#WebController#0" expanded="false" />
+            <element signature="n#!!block;n#getPhoto#0;n#!!block;n#WebController#0" expanded="false" />
+            <element signature="n#!!block;n#getGroup#0;n#!!block;n#WebController#0" expanded="false" />
+            <element signature="n#!!block;n#getIndividual#0;n#!!block;n#WebController#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>

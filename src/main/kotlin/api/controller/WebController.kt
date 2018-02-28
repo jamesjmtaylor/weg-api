@@ -49,14 +49,14 @@ class WebController {
     @RequestMapping("/getAllLandCombined")
     fun getAllLandCombined(): List<LandCombined> {
         val guns =  repository.getAll()
-        val gunMap = guns.associateBy({it.name.trim().toLowerCase()},{it})
+        val gunMap = guns.associateBy({it.name.toLowerCase()},{it})
         val land = landRepo.getAll()
         var landCombinedList = ArrayList<LandCombined>()
         for (l in land){
             val lc = LandCombined(l.name,l.groupIconUrl,l.individualIconUrl,l.photoUrl,
-                    gunMap.get(l.primaryWeapon?.trim()?.toLowerCase()),
-                    gunMap.get(l.secondaryWeapon?.trim()?.toLowerCase()),
-                    gunMap.get(l.atgm?.trim()?.toLowerCase()),
+                    gunMap.get(l.primaryWeapon?.toLowerCase()),
+                    gunMap.get(l.secondaryWeapon?.toLowerCase()),
+                    gunMap.get(l.atgm?.toLowerCase()),
                     l.armor,l.speed,l.auto,l.weight,l.description)
             lc.id = l.id
             landCombinedList.add(lc)
@@ -69,15 +69,15 @@ class WebController {
     @RequestMapping("/getAllSeaCombined")
     fun getAllSeaCombined(): List<SeaCombined> {
         val guns =  repository.getAll()
-        val gunMap = guns.associateBy({it.name.trim().toLowerCase()},{it})
+        val gunMap = guns.associateBy({it.name.toLowerCase()},{it})
         val sea = seaRepo.getAll()
         var seaCombinedList = ArrayList<SeaCombined>()
         for (s in sea){
-            val sc = SeaCombined(s.name.trim(),s.individualIconUrl,s.photoUrl,
-                    gunMap.get(s.gun?.trim()?.toLowerCase()),
-                    gunMap.get(s.sam?.trim()?.toLowerCase()),
-                    gunMap.get(s.asm?.trim()?.toLowerCase()),
-                    gunMap.get(s.torpedo?.trim()?.toLowerCase()),
+            val sc = SeaCombined(s.name,s.individualIconUrl,s.photoUrl,
+                    gunMap.get(s.gun?.toLowerCase()),
+                    gunMap.get(s.sam?.toLowerCase()),
+                    gunMap.get(s.asm?.toLowerCase()),
+                    gunMap.get(s.torpedo?.toLowerCase()),
                     s.transports,s.qty,s.dive,s.speed,s.auto,s.tonnage,s.description)
             sc.id = s.id
             seaCombinedList.add(sc)
@@ -90,15 +90,15 @@ class WebController {
     @RequestMapping("/getAllAirCombined")
     fun getAllAirCombined(): List<AirCombined> {
         val guns =  repository.getAll()
-        val gunMap = guns.associateBy({it.name.trim().toLowerCase()},{it})
+        val gunMap = guns.associateBy({it.name.toLowerCase()},{it})
         val air = airRepo.getAll()
         var airCombinedList = ArrayList<AirCombined>()
         for (a in air){
-            val ac = AirCombined(a.name.trim(),a.groupIconUrl,a.individualIconUrl,a.photoUrl,
-                    gunMap.get(a.gun?.trim()?.toLowerCase()),
-                    gunMap.get(a.agm?.trim()?.toLowerCase()),
-                    gunMap.get(a.aam?.trim()?.toLowerCase()),
-                    gunMap.get(a.asm?.trim()?.toLowerCase()),
+            val ac = AirCombined(a.name,a.groupIconUrl,a.individualIconUrl,a.photoUrl,
+                    gunMap.get(a.gun?.toLowerCase()),
+                    gunMap.get(a.agm?.toLowerCase()),
+                    gunMap.get(a.aam?.toLowerCase()),
+                    gunMap.get(a.asm?.toLowerCase()),
                     a.speed,a.auto,a.ceiling,a.weight,a.description)
             ac.id = a.id
             airCombinedList.add(ac)
