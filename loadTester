@@ -1,0 +1,16 @@
+#!/bin/bash
+i=1
+SECONDS=0
+while [ $i -le 500 ]
+ do
+    ((i++))
+    (response=$(curl -i --verbose \
+    --request GET \
+    --url 'http://localhost:8080/getAllCombined' \
+    )
+	loop=$'\n Request Loop: '$i
+    resp=$'\n Response: '$response
+    echo "$loop" >> output.txt) &
+ done
+ wait
+ echo $'\n Total seconds: '$SECONDS >> output.txt

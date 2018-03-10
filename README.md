@@ -41,7 +41,21 @@ NOTE that it must be an absolute path to the CSV.**
        DIVE INT, SPEED INT, AUTO INT, TONNAGE INT);` **Creates the table `sea`**
 15. `COPY sea FROM './sea.csv' CSV HEADER;` **copies the values in the _sea.csv_ into the psql _sea_ table.
 NOTE that it must be an absolute path to the CSV.**
+16. Alternatively, steps 5-15 can be executed in the single command below:
 
+`CREATE TABLE gun(ID INT PRIMARY KEY NOT NULL, NAME VARCHAR(255), DESCRIPTION TEXT, GROUP_ICON_URL VARCHAR(255), 
+ INDIVIDUAL_ICON_URL VARCHAR(255),  PHOTO_URL VARCHAR(255), RANGE INT, PENETRATION INT, ALTITUDE INT); 
+COPY gun FROM './guns.csv' CSV HEADER; CREATE TABLE land(ID INT PRIMARY KEY NOT NULL, NAME VARCHAR(255),
+ DESCRIPTION TEXT, GROUP_ICON_URL VARCHAR(255), INDIVIDUAL_ICON_URL VARCHAR(255), PHOTO_URL VARCHAR(255),
+ PRIMARY_WEAPON VARCHAR(255), SECONDARY_WEAPON VARCHAR(255), ATGM VARCHAR(255),  ARMOR INT, SPEED INT, AUTO INT, 
+ WEIGHT INT); 
+COPY land FROM './land.csv' CSV HEADER; CREATE TABLE air(ID INT PRIMARY KEY NOT NULL, NAME VARCHAR(255), 
+ DESCRIPTION TEXT, GROUP_ICON_URL VARCHAR(255), INDIVIDUAL_ICON_URL VARCHAR(255),  PHOTO_URL VARCHAR(255), GUN VARCHAR(255), 
+ AGM VARCHAR(255), AAM VARCHAR(255), ASM VARCHAR(255), SPEED INT, AUTO INT, CEILING INT, WEIGHT INT); 
+COPY air FROM './air.csv' CSV HEADER; CREATE TABLE sea(ID INT PRIMARY KEY NOT NULL, NAME VARCHAR(255), DESCRIPTION TEXT,
+ INDIVIDUAL_ICON_URL VARCHAR(255), PHOTO_URL VARCHAR(255), GUN VARCHAR(255), SAM VARCHAR(255), ASM VARCHAR(255), 
+ TORPEDO VARCHAR(255), TRANSPORTS VARCHAR(255), QTY INT, DIVE INT, SPEED INT, AUTO INT, TONNAGE INT);
+COPY sea FROM './sea.csv' CSV HEADER;`
 
 NOTE: When you're operating in the psql command prompt, in order to 
 execute multi-line queries, i.e. 
@@ -81,5 +95,31 @@ minimize the size of your external libraries overall.
   * gson
   * commons-dbutil
   * javax.persistence:persistence-api
+  
+## Load Testing
+
+The server was load tested with the script below.  The script simulates 500 simultaneous connections to the server. Amazingly,
+ all 500 of the requests were resolved in 4 seconds, generating a plaintext output file 253mb in size. Any more than 500
+ simeltaneous attempts causes a server error of _**org.postgresql.util.PSQLException: A connection could not be made using the requested protocol null.**_
+ Whether that was a failure caused by the server or the environment hosting the script is as of yet undetermined.  Regardless,
+ the server continued to respond successfully to subsequent GET requests even after the exception.
+
+```#!/bin/bash
+   i=1
+   SECONDS=0
+   while [ $i -le 500 ]
+    do
+       ((i++))
+       (response=$(curl -i --verbose \
+       --request GET \
+       --url 'http://localhost:8080/getAllCombined' \
+       )
+   	loop=$'\n Request Loop: '$i
+       resp=$'\n Response: '$response
+       echo "$loop$resp" >> output.txt) &
+    done
+    echo $'\n Total seconds: '$SECONDS >> output.txt
+    ```   
+  
   
   
