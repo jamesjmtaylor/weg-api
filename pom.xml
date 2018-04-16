@@ -79,8 +79,7 @@
                     <archive>
                         <manifest>
                             <addClasspath>true</addClasspath>
-                            <classpathPrefix>lib/</classpathPrefix>
-                            <mainClass>com.api.KotlinSpringJpaPostgresqlApplication</mainClass>
+                            <mainClass>api.ApiKt</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
