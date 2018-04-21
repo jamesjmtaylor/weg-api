@@ -15,47 +15,12 @@ at **http://localhost:8080/**
 These steps are enumerated to facilitate dockerization.  The postgresql db, though encapsulated in the github project 
 for the time being, will eventually need to be placed on it's own persistent docker container.
 
-1. `pg_ctl -D ./db -l logfile start` **Starts the postgres server**
-2. `createdb weg` **Creates the database**
-3. `psql weg` **opens the database in the termainal**
-4. `\password` **Allows you to set the password (type it in twice)**
-5. `CREATE TABLE gun(ID INT PRIMARY KEY NOT NULL, NAME VARCHAR(255), DESCRIPTION TEXT, GROUP_ICON_URL VARCHAR(255), INDIVIDUAL_ICON_URL VARCHAR(255),  
-           PHOTO_URL VARCHAR(255), RANGE INT, PENETRATION INT, ALTITUDE INT);` **Creates the table `gun`**
-6. `COPY gun FROM './guns.csv' CSV HEADER;` **copies the values in the _guns.csv_ into the psql _guns_ table.
-NOTE that it must be an absolute path to the CSV.**
-7. `\dt` **Shows all the tables in the database**
-8. `\d gun` **Shows all the columns for the guns table**
-9. `SELECT name FROM gun` **Shows all the names of the rows you just inserted**
-10. `CREATE TABLE land(ID INT PRIMARY KEY NOT NULL, NAME VARCHAR(255), DESCRIPTION TEXT, GROUP_ICON_URL VARCHAR(255), INDIVIDUAL_ICON_URL VARCHAR(255),  
-       PHOTO_URL VARCHAR(255), PRIMARY_WEAPON VARCHAR(255), SECONDARY_WEAPON VARCHAR(255), ATGM VARCHAR(255), 
-       ARMOR INT, SPEED INT, AUTO INT, WEIGHT INT);` **Creates the table `land`**
-11. `COPY land FROM './land.csv' CSV HEADER;` **copies the values in the _land.csv_ into the psql _land_ table. 
-NOTE that it must be an absolute path to the CSV.**
-12. `CREATE TABLE air(ID INT PRIMARY KEY NOT NULL, NAME VARCHAR(255), DESCRIPTION TEXT, GROUP_ICON_URL VARCHAR(255), INDIVIDUAL_ICON_URL VARCHAR(255),  
-       PHOTO_URL VARCHAR(255), GUN VARCHAR(255), AGM VARCHAR(255), AAM VARCHAR(255), ASM VARCHAR(255),
-       SPEED INT, AUTO INT, CEILING INT, WEIGHT INT);` **Creates the table `air`**
-13. `COPY air FROM './air.csv' CSV HEADER;` **copies the values in the _air.csv_ into the psql _air_ table.
-NOTE that it must be an absolute path to the CSV.**
-14. `CREATE TABLE sea(ID INT PRIMARY KEY NOT NULL, NAME VARCHAR(255), DESCRIPTION TEXT, INDIVIDUAL_ICON_URL VARCHAR(255),  
-       PHOTO_URL VARCHAR(255), GUN VARCHAR(255), SAM VARCHAR(255), ASM VARCHAR(255), TORPEDO VARCHAR(255), TRANSPORTS VARCHAR(255), QTY INT,
-       DIVE INT, SPEED INT, AUTO INT, TONNAGE INT);` **Creates the table `sea`**
-15. `COPY sea FROM './sea.csv' CSV HEADER;` **copies the values in the _sea.csv_ into the psql _sea_ table.
-NOTE that it must be an absolute path to the CSV.**
-16. Alternatively, steps 5-15 can be executed in the single command below:
-
-`CREATE TABLE gun(ID INT PRIMARY KEY NOT NULL, NAME VARCHAR(255), DESCRIPTION TEXT, GROUP_ICON_URL VARCHAR(255), 
- INDIVIDUAL_ICON_URL VARCHAR(255),  PHOTO_URL VARCHAR(255), RANGE INT, PENETRATION INT, ALTITUDE INT); 
-COPY gun FROM './guns.csv' CSV HEADER; CREATE TABLE land(ID INT PRIMARY KEY NOT NULL, NAME VARCHAR(255),
- DESCRIPTION TEXT, GROUP_ICON_URL VARCHAR(255), INDIVIDUAL_ICON_URL VARCHAR(255), PHOTO_URL VARCHAR(255),
- PRIMARY_WEAPON VARCHAR(255), SECONDARY_WEAPON VARCHAR(255), ATGM VARCHAR(255),  ARMOR INT, SPEED INT, AUTO INT, 
- WEIGHT INT); 
-COPY land FROM './land.csv' CSV HEADER; CREATE TABLE air(ID INT PRIMARY KEY NOT NULL, NAME VARCHAR(255), 
- DESCRIPTION TEXT, GROUP_ICON_URL VARCHAR(255), INDIVIDUAL_ICON_URL VARCHAR(255),  PHOTO_URL VARCHAR(255), GUN VARCHAR(255), 
- AGM VARCHAR(255), AAM VARCHAR(255), ASM VARCHAR(255), SPEED INT, AUTO INT, CEILING INT, WEIGHT INT); 
-COPY air FROM './air.csv' CSV HEADER; CREATE TABLE sea(ID INT PRIMARY KEY NOT NULL, NAME VARCHAR(255), DESCRIPTION TEXT,
- INDIVIDUAL_ICON_URL VARCHAR(255), PHOTO_URL VARCHAR(255), GUN VARCHAR(255), SAM VARCHAR(255), ASM VARCHAR(255), 
- TORPEDO VARCHAR(255), TRANSPORTS VARCHAR(255), QTY INT, DIVE INT, SPEED INT, AUTO INT, TONNAGE INT);
-COPY sea FROM './sea.csv' CSV HEADER;`
+1. `bash installPostgres.sh` **Installs the postgres dependancies**
+2. `pg_ctl -D ./db -l logfile start` **Starts the postgres server**
+3. `createdb weg` **Creates the database**
+4. `psql weg` **opens the database in the termainal**
+5. `\password` **Allows you to set the password (type it in twice)**
+6. `bash initializeDb.sh` **Creates and populates all the tables**
 
 NOTE: When you're operating in the psql command prompt, in order to 
 execute multi-line queries, i.e. 
@@ -80,11 +45,18 @@ Spark on the other hand uses Data Access Objects with SQL queries (i.e. "SELECT 
 Kotlin methods.  This forces the developer to do a lot of hand-crafting of SQL statements upfront, but means that you can
 minimize the size of your external libraries overall.
   
-## POSTGRESQL Lessons Learned
-
-  * `pg_ctl` is to initialize, start, stop, or control a PostgreSQL 
-  server
-  * Actual postgresql command are preceded with `psql`, i.e. `psql
+## UNIX/POSTGRESQL Lessons Learned
+  * `su - userName` (su stands for `Switch User`)
+  * `adduser jtaylor` (Creates user)
+  * `usermod -aG sudo jtaylor` (Gives root privelages to user)
+  * If you get 'root doesn't exist' error, `sudo -u postgres createuser owning_user -s`
+  * `pg_ctl` is to initialize, start, stop, or control a PostgreSQL server
+  * If you need to know which psql servers are running use `pg_lsclusters`
+  * You can interact with the psql terminal directly by using `psql dbNameHere userNameHere`
+  * To login with a password use `psql -U userNameHere -h 127.0.0.1 dbNameHere`
+  * `\du` (Lists all users and their roles
+  * `\dt` (Lists all tables)
+  * `\q` (quit)
   
 ## Spark Libraries
   
