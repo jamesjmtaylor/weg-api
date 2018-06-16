@@ -153,7 +153,7 @@ id,name,Description,groupIconUrl,individualIconUrl,photoUrl,range,penetration,al
 152,9M333 SAM,,,,,5000,0,3500
 153,9P35M2 SAM,,,,,10000,0,5000
 154,Mistral SAM,,,,,6000,0,3000
-155,23mm  quad auto-cannon,,,,,2500,0,1500
+155,23mm  quad auto-cannon,,,,,2500,32,1500
 156,57mm  twin auto-cannon,,,,,4000,0,4237
 157,35mm  twin auto-cannon,,,,,4000,0,3100
 158,30mm twin auto-cannon,,,,,4000,0,3000
@@ -167,12 +167,21 @@ id,name,Description,groupIconUrl,individualIconUrl,photoUrl,range,penetration,al
 166,SA-N-7 Gadfly,,,,,42000,0,25000
 167,SA-N-8 Gremlin,,,,,6000,0,6000
 168,SA-N-10 Grouse,,,,,6000,0,3500
-169,SS-N-16 Stallion,,,,,100000,0,0
-170,SS-N-27 Club,,,,,1500000,0,0
-171,30mm CIWS,,,,,5000,55,0
-172,76mm,,,,,19000,280,0
-173,130mm,,,,,29000,460,0
-174,30mm AGL,,,,,1200,10,0
-175,C-701; Cruise Missile,,,,,20000,0,0
-176,C-704,,,,,35000,0,0
-177,GSSh-6-30K,,,,,5000,55,0
+169,SA-N-11 Grison,,,,,10000,0,7000
+170,SS-N-16 Stallion,,,,,100000,0,0
+171,SS-N-27 Club,,,,,1500000,0,0
+172,30mm CIWS,,,,,5000,55,3000
+173,76mm,,,,,19000,280,0
+174,100mm,,,,,21500,370,0
+175,130mm,,,,,29000,460,0
+176,30mm AGL,,,,,1200,10,0
+177,C-701; Cruise Missile,,,,,20000,0,0
+178,C-704,,,,,35000,0,0
+179,GSSh-6-30K,,,,,5000,55,0
+180,SS-N-29 Mole cricket,,,,,20000,0,0
+181,Paket ASW,,,,,10000,0,0
+182,533mm,,,,,60000,0,0
+183,650mm,,,,,100000,0,0
+184,Phalanx CIWS,,,,,3500,32,2000
+185,RIM-162 ESSM ,,,,,50000,0,24500
+186,RIM-116 RAM,,,,,9000,0,6000
