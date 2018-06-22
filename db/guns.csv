@@ -124,7 +124,7 @@ id,name,Description,groupIconUrl,individualIconUrl,photoUrl,range,penetration,al
 123,R-73M1; Archer,,,,,30000,0,0
 124,R-27; Adder,,,,,104000,0,0
 125,AIM-9L Sidewinder,,,,,17000,0,0
-126, AIM-92 Stinger,,,,,8000,0,0
+126,AIM-92 Stinger,,,,,8000,0,0
 127,AIM-120 AMRAAM,,,,,75000,0,0
 128,Ataka 9A2200,,,,,6000,0,0
 129,Igla-Super,,,,,6000,0,0
@@ -193,3 +193,6 @@ id,name,Description,groupIconUrl,individualIconUrl,photoUrl,range,penetration,al
 192,Mk 48; 533mm,,,,,50000,0,0
 193,Tomahawk BGM-109,,,,,2500000,0,0
 194,UGM-96 Trident I,,,,,7400000,0,0
+195,TY-90,,,,,7000,0,7000
+196,PL-5,,,,,2000,0,2000
+197,PL-7,,,,,14000,0,14000
