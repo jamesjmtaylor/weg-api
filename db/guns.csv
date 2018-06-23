@@ -121,15 +121,15 @@ id,name,Description,groupIconUrl,individualIconUrl,photoUrl,range,penetration,al
 120,Sea Eagle,,,,,110000,0,0
 121,AGM 84 Harpon,,,,,124000,0,0
 122,Saab RBS15F,,,,,250000,0,0
-123,R-73M1; Archer,,,,,30000,0,0
-124,R-27; Adder,,,,,104000,0,0
-125,AIM-9L Sidewinder,,,,,17000,0,0
-126,AIM-92 Stinger,,,,,8000,0,0
-127,AIM-120 AMRAAM,,,,,75000,0,0
-128,Ataka 9A2200,,,,,6000,0,0
-129,Igla-Super,,,,,6000,0,0
-130,Aphid R-60M,,,,,8000,0,0
-131,"R-60M, Aphid",,,,,8000,0,0
+123,R-73M1; Archer,,,,,30000,0,17500
+124,R-27; Adder,,,,,104000,0,24400
+125,R-40; Acrid,,,,,80000,0,23000
+126,"R-60M, Aphid",,,,,8000,0,18600
+127,AIM-9L Sidewinder,,,,,17000,0,13700
+128,AIM-92 Stinger,,,,,8000,0,4000
+129,AIM-120 AMRAAM,,,,,75000,0,20000
+130,Ataka 9A2200,,,,,6000,0,0
+131,Igla-Super,,,,,6000,0,6000
 132,Hermes-A multirole,,,,,18000,0,0
 133,3M9M3 SAM,,,,,25000,0,14000
 134,5V27DE SAM,,,,,35000,0,18300
@@ -196,3 +196,8 @@ id,name,Description,groupIconUrl,individualIconUrl,photoUrl,range,penetration,al
 195,TY-90,,,,,7000,0,7000
 196,PL-5,,,,,2000,0,2000
 197,PL-7,,,,,14000,0,14000
+198,MBDA Marte ASM,,,,,25000,0,0
+199,Brimstone,,,,,20000,3900,0
+200,R550 Magic,,,,,15000,0,11000
+201,AS-30,,,,,11000,200,0
+202,Kh-55; Kent,,,,,3000000,0,0
