@@ -10,6 +10,14 @@ Follow the steps below in the 'Future Docker Setup' section to initialize the po
 and, assuming you're using the IntelliJ IDEA, go to the menu bar and select **Run** > **Run...** The api will be available
 at **http://localhost:8080/**
 
+## Updating the application
+
+1. Open https://cloud.digitalocean.com/droplets/
+2. Open a console for the weg-api
+3. `cd weg-api` **Navigates to the github repo**
+4. `sudo git pull` **Updates the github repo**
+5. `bash initializeDb.sh` **Updates all the tables**
+
 ## Future Docker setup
 
 These steps are enumerated to facilitate dockerization.  The postgresql db, though encapsulated in the github project 
