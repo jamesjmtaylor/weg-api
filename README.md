@@ -17,13 +17,18 @@ at **http://localhost:8080/**
 3. `cd weg-api` **Navigates to the github repo**
 4. `sudo git pull` **Updates the github repo**
 5. `bash initializeDb.sh` **Updates all the tables**
+6. `cd ..` **Navigates to the root directory**
+7. `screen` **Allows server to run in detached mode**
+8. `lsof -i :8080` **Lists other instances of the Jar that may be running**
+9. `kill <pid>` **Kills the specified pid so that the new service can run on 8080**
+8. `bash runJarAsService.sh` **Begins the service**
 
 ## Future Docker setup
 
 These steps are enumerated to facilitate dockerization.  The postgresql db, though encapsulated in the github project 
 for the time being, will eventually need to be placed on it's own persistent docker container.
 
-1. `bash installPostgres.sh` **Installs the postgres dependancies**
+1. `bash installJreAndPostgres.sh` **Installs the JRE & postgres dependancies**
 2. `pg_ctl -D ./db -l logfile start` **Starts the postgres server**
 3. `createdb weg` **Creates the database**
 4. `psql weg` **opens the database in the termainal**
