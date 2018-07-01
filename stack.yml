@@ -1,0 +1,13 @@
+services:
+
+  db:
+    image: weg-db
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: trire123
+
+  weg-api:
+    image: weg-api
+    restart: always
+    ports:
+      - 8080:8080
