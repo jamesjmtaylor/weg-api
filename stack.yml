@@ -1,13 +1,26 @@
+version: '3'
 services:
-
   db:
-    image: weg-db
+    image: postgres
     restart: always
+    command: postgres -c logging_collector=on -c log_destination=stderr -c log_directory=/logs
     environment:
+      POSTGRES_USER: root
       POSTGRES_PASSWORD: trire123
+      POSTGRES_DB: weg
+    ports:
+      - "8080:8080"
+    volumes:
+       # Persist the data between container invocations
+       - postgresVolume:/var/lib/postgresql/data
+       - ./logs:/logs
 
   weg-api:
     image: weg-api
     restart: always
     ports:
-      - 8080:8080
+      - "8080:8080"
+    depends_on:
+      - "db"
+volumes:
+  postgresVolume:
