@@ -8,16 +8,15 @@ services:
       POSTGRES_USER: root
       POSTGRES_PASSWORD: trire123
       POSTGRES_DB: weg
-    ports:
-      - "8080:8080"
     volumes:
        # Persist the data between container invocations
        - postgresVolume:/var/lib/postgresql/data
        - ./logs:/logs
-
+    ports:
+      - "5432:5432"
   weg-api:
     image: weg-api
-    restart: always
+    #restart: always
     ports:
       - "8080:8080"
     depends_on:
