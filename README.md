@@ -10,7 +10,7 @@ Follow the steps below in the 'Future Docker Setup' section to initialize the po
 and, assuming you're using the IntelliJ IDEA, go to the menu bar and select **Run** > **Run...** The api will be available
 at **http://localhost:8080/**
 
-## Updating the application
+## Running the application manually
 
 1. Open https://cloud.digitalocean.com/droplets/
 2. Open a console for the weg-api
@@ -28,12 +28,8 @@ at **http://localhost:8080/**
 These steps are enumerated to facilitate dockerization.  The postgresql db, though encapsulated in the github project 
 for the time being, will eventually need to be placed on it's own persistent docker container.
 
-1. `bash installJreAndPostgres.sh` **Installs the JRE & postgres dependancies**
-2. `pg_ctl -D ./db -l logfile start` **Starts the postgres server**
-3. `createdb weg` **Creates the database**
-4. `psql weg` **opens the database in the termainal**
-5. `\password` **Allows you to set the password (type it in twice)**
-6. `bash initializeDb.sh` **Creates and populates all the tables**
+1. `docker exec -it CONTAINER_NAME sh` **SSHs into a given container running locally**
+2. `bash initializeDb.sh` **Creates and populates all the tables**
 
 NOTE: When you're operating in the psql command prompt, in order to 
 execute multi-line queries, i.e. 
@@ -58,15 +54,23 @@ Spark on the other hand uses Data Access Objects with SQL queries (i.e. "SELECT 
 Kotlin methods.  This forces the developer to do a lot of hand-crafting of SQL statements upfront, but means that you can
 minimize the size of your external libraries overall.
   
-## UNIX/POSTGRESQL Lessons Learned
+## UNIX Lessons Learned
+
   * `su - userName` (su stands for `Switch User`)
   * `adduser jtaylor` (Creates user)
   * `usermod -aG sudo jtaylor` (Gives root privelages to user)
+
+## POSTGRESQL Lessons Learned
+
   * If you get 'root doesn't exist' error, `sudo -u postgres createuser owning_user -s`
   * `pg_ctl` is to initialize, start, stop, or control a PostgreSQL server
+  * `pg_ctl -D ./db -l logfile start` - Starts the postgres server
   * If you need to know which psql servers are running use `pg_lsclusters`
   * You can interact with the psql terminal directly by using `psql dbNameHere userNameHere`
   * To login with a password use `psql -U userNameHere -h 127.0.0.1 dbNameHere`
+  * `createdb weg` - Creates the database
+  * `\password` - Allows you to set the password (type it in twice)
+  * `psql weg` - opens the database in the termainal
   * `\du` (Lists all users and their roles
   * `\dt` (Lists all tables)
   * `\q` (quit)
