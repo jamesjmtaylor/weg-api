@@ -16,6 +16,7 @@ at **http://localhost:8080/**
 2. Open a console for the weg-api
 3. `cd weg-api` **Navigates to the github repo**
 4. `sudo git pull` **Updates the github repo**
+5. `pg_ctl -D ./db start` **Starts postgres**
 5. `bash initializeDb.sh` **Updates all the tables**
 6. `cd ..` **Navigates to the root directory**
 7. `screen` **Allows server to run in detached mode**
@@ -30,6 +31,8 @@ for the time being, will eventually need to be placed on it's own persistent doc
 
 1. `docker exec -it CONTAINER_NAME sh` **SSHs into a given container running locally**
 2. `bash initializeDb.sh` **Creates and populates all the tables**
+3. `docker-compose up` **Launches the services listed in the docker-compose.yml**
+4. `docker kill <pid>` **Kills the specified process id (discoverable with `docker ps`)**
 
 NOTE: When you're operating in the psql command prompt, in order to 
 execute multi-line queries, i.e. 
@@ -73,6 +76,7 @@ minimize the size of your external libraries overall.
   * `psql weg` - opens the database in the termainal
   * `\du` (Lists all users and their roles
   * `\dt` (Lists all tables)
+  * `\d+ <table>` (Lists all columns in a table)
   * `\q` (quit)
   
 ## Spark Libraries
