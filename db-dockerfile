@@ -1,0 +1,14 @@
+# TODO: Eventually use a DB pure container as built with this container
+FROM postgres:10.5 as build
+RUN mkdir sql
+RUN mkdir sql/docker-entrypoint-initdb.d
+WORKDIR /sql
+
+# Copies files from build directory to docker container
+COPY initializeDb.sh /sql/docker-entrypoint-initdb.d
+COPY db/guns.csv /sql/db
+COPY db/land.csv /sql/db
+COPY db/air.csv /sql/db
+COPY db/sea.csv /sql/db
+
+
