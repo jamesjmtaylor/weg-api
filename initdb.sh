@@ -12,8 +12,8 @@ psql -U root -d weg -c "CREATE TABLE sea(id INT PRIMARY KEY NOT NULL, name VARCH
 echo "DB tables created\n" 
 
 psql -U root -d weg -c "COPY gun (id, name, description, group_icon_url, individual_icon_url, photo_url, range, penetration, altitude) FROM '/sql/docker-entrypoint-initdb.d/guns.csv' CSV HEADER;"
-psql -U root -d weg -c "COPY sea (id, name, description, individual_icon_url, photo_url, gun, sam, asm, torpedo, transports, qty, dive, speed, auto, tonnage)  FROM '/sql/docker-entrypoint-initdb.d//sea.csv' CSV HEADER;"
-psql -U root -d weg -c "COPY air (id, name, description, group_icon_url, individual_icon_url, photo_url, gun, agm, aam, asm, speed, auto, ceiling, weight) FROM '/sql/docker-entrypoint-initdb.d//air.csv' CSV HEADER;"
-psql -U root -d weg -c "COPY land (id, name, description, group_icon_url, individual_icon_url, photo_url, primary_weapon, secondary_weapon, atgm, armor, speed, auto, weight)  FROM '/sql/docker-entrypoint-initdb.d//land.csv' CSV HEADER;"
+psql -U root -d weg -c "COPY sea (id, name, description, individual_icon_url, photo_url, gun, sam, asm, torpedo, transports, qty, dive, speed, auto, tonnage)  FROM '/sql/docker-entrypoint-initdb.d/sea.csv' CSV HEADER;"
+psql -U root -d weg -c "COPY air (id, name, description, group_icon_url, individual_icon_url, photo_url, gun, agm, aam, asm, speed, auto, ceiling, weight) FROM '/sql/docker-entrypoint-initdb.d/air.csv' CSV HEADER;"
+psql -U root -d weg -c "COPY land (id, name, description, group_icon_url, individual_icon_url, photo_url, primary_weapon, secondary_weapon, atgm, armor, speed, auto, weight)  FROM '/sql/docker-entrypoint-initdb.d/land.csv' CSV HEADER;"
 
 echo "DB populated\n" 
