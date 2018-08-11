@@ -29,10 +29,16 @@ at **http://localhost:8080/**
 These steps are enumerated to facilitate dockerization.  The postgresql db, though encapsulated in the github project 
 for the time being, will eventually need to be placed on it's own persistent docker container.
 
+0. `docker images` **Lists all locally available images**
+0. `docker build -f db-dockerfile .` **Builds the image for docker-compose (Don't forget the period at the end!)**
+0. `docker ps` **Lists all running docker images**
 1. `docker exec -it CONTAINER_NAME sh` **SSHs into a given container running locally**
 2. `bash initializeDb.sh` **Creates and populates all the tables**
 3. `docker-compose up` **Launches the services listed in the docker-compose.yml**
 4. `docker kill <pid>` **Kills the specified process id (discoverable with `docker ps`)**
+5. `apt-get update && apt-get install vim` **Installs vim for editing files while shelled into a container**
+5. `docker images -a | xargs docker rmi -f` **removes all images (containers must be stopped first)**
+
 
 NOTE: When you're operating in the psql command prompt, in order to 
 execute multi-line queries, i.e. 
