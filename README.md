@@ -17,27 +17,27 @@ at **http://localhost:8080/**
 3. `cd weg-api` **Navigates to the github repo**
 4. `sudo git pull` **Updates the github repo**
 5. `pg_ctl -D ./db start` **Starts postgres**
-5. `bash initializeDb.sh` **Updates all the tables**
-6. `cd ..` **Navigates to the root directory**
-7. `screen` **Allows server to run in detached mode**
-8. `lsof -i :8080` **Lists other instances of the Jar that may be running**
-9. `kill <pid>` **Kills the specified pid so that the new service can run on 8080**
-8. `bash runJarAsService.sh` **Begins the service**
+6. `bash initializeDb.sh` **Updates all the tables**
+7. `cd ..` **Navigates to the root directory**
+8. `screen` **Allows server to run in detached mode**
+9. `lsof -i :8080` **Lists other instances of the Jar that may be running**
+10. `kill <pid>` **Kills the specified pid so that the new service can run on 8080**
+11. `bash runJarAsService.sh` **Begins the service**
 
 ## Future Docker setup
 
 These steps are enumerated to facilitate dockerization.  The postgresql db, though encapsulated in the github project 
 for the time being, will eventually need to be placed on it's own persistent docker container.
 
-0. `docker images` **Lists all locally available images**
-0. `docker build -f db-dockerfile .` **Builds the image for docker-compose (Don't forget the period at the end!)**
-0. `docker ps` **Lists all running docker images**
-1. `docker exec -it CONTAINER_NAME sh` **SSHs into a given container running locally**
-2. `bash initializeDb.sh` **Creates and populates all the tables**
-3. `docker-compose up` **Launches the services listed in the docker-compose.yml**
-4. `docker kill <pid>` **Kills the specified process id (discoverable with `docker ps`)**
-5. `apt-get update && apt-get install vim` **Installs vim for editing files while shelled into a container**
-5. `docker images -a | xargs docker rmi -f` **removes all images (containers must be stopped first)**
+1. `docker images` **Lists all locally available images**
+2. `docker build -f db-dockerfile .` **Builds the image for docker-compose (Don't forget the period at the end!)**
+3. `docker ps` **Lists all running docker images**
+4. `docker exec -it CONTAINER_NAME sh` **SSHs into a given container running locally**
+5. `bash initializeDb.sh` **Creates and populates all the tables**
+6. `docker-compose up --build` **Launches the services listed in the docker-compose.yml after building fresh images**
+7. `docker kill <pid>` **Kills the specified process id (discoverable with `docker ps`)**
+8. `apt-get update && apt-get install vim` **Installs vim for editing files while shelled into a container**
+9. `docker images -a | xargs docker rmi -f` **removes all images (containers must be stopped first)**
 
 
 NOTE: When you're operating in the psql command prompt, in order to 

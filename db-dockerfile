@@ -1,5 +1,5 @@
-# TODO: Eventually use a DB pure container as built with this container
-FROM postgres:9.4 as build
+# Creates docker-entrypoint-initdb.d (all scripts in dir are run automatically after startup)
+FROM postgres:9.4 
 RUN mkdir sql
 RUN mkdir sql/docker-entrypoint-initdb.d
 COPY initdb.sh /sql/docker-entrypoint-initdb.d
@@ -7,5 +7,5 @@ COPY guns.csv /sql/docker-entrypoint-initdb.d
 COPY land.csv /sql/docker-entrypoint-initdb.d
 COPY air.csv /sql/docker-entrypoint-initdb.d
 COPY sea.csv /sql/docker-entrypoint-initdb.d
-WORKDIR /sql
+
 

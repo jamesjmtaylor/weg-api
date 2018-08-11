@@ -10,7 +10,6 @@ services:
       POSTGRES_USER: root
       POSTGRES_PASSWORD: trire123
       POSTGRES_DB: weg
-#volumes persists db across container instances
     volumes:
       - ./postgres-data:/var/lib/postgresql/data
     ports: 
@@ -24,5 +23,4 @@ services:
       - "8080:8080"
     depends_on:
       - "db"
-    links:
-      - db
+
