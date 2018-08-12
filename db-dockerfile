@@ -7,5 +7,7 @@ COPY guns.csv /sql/docker-entrypoint-initdb.d
 COPY land.csv /sql/docker-entrypoint-initdb.d
 COPY air.csv /sql/docker-entrypoint-initdb.d
 COPY sea.csv /sql/docker-entrypoint-initdb.d
+WORKDIR /sql/
+
 
 
