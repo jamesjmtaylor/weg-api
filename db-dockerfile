@@ -1,12 +1,12 @@
-# Creates docker-entrypoint-initdb.d (all scripts in dir are run automatically after startup)
+# NOTE: docker-entrypoint-initdb.d is where all scripts and sql files in dir are run automatically during startup, not used here because db needs to be running first
 FROM postgres:9.4 
 RUN mkdir sql
 RUN mkdir sql/docker-entrypoint-initdb.d
-COPY initdb.sh /sql/docker-entrypoint-initdb.d
-COPY guns.csv /sql/docker-entrypoint-initdb.d
-COPY land.csv /sql/docker-entrypoint-initdb.d
-COPY air.csv /sql/docker-entrypoint-initdb.d
-COPY sea.csv /sql/docker-entrypoint-initdb.d
+COPY initdb.sh /sql/
+COPY guns.csv /sql/
+COPY land.csv /sql/
+COPY air.csv /sql/
+COPY sea.csv /sql/
 WORKDIR /sql/
 
 
