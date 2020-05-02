@@ -72,6 +72,7 @@ minimize the size of your external libraries overall.
 ## POSTGRESQL Lessons Learned
 
   * If you get 'root doesn't exist' error, `sudo -u postgres createuser owning_user -s`
+  * If you get 'role "yourRoleNameHere" does not exist', open the db with `psql dbNameHere` then create a user by following the documentation here: https://www.postgresql.org/docs/8.1/sql-createrole.html
   * `pg_ctl` is to initialize, start, stop, or control a PostgreSQL server
   * `pg_ctl -D ./db -l logfile start` - Starts the postgres server
   * If you need to know which psql servers are running use `pg_lsclusters`
